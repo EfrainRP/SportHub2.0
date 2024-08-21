@@ -1,0 +1,455 @@
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  --primary: #F4EDE8;
+  --secundary: #645f5f;
+  --complementA: #040404fb;
+  --complementB: #D0671C;
+  --complementC: #1d1b31;
+
+  --tran-03: all 0.2s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.4s ease;
+}
+
+.sidebarbody {
+  min-height: 100vh;
+  background-color: var(--primary);
+  transition: var(--tran-05);
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 78px;
+  background: var(--complementA);
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+  /*overflow-y: scroll;*/
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar .logo-details .icon {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details .logo_name {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
+}
+
+.sidebar .logo-details #btn{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+  text-align: right;
+}
+
+.sidebar i{
+  color: var(--primary);
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.sidebar .nav-list{
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar li{
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: var(--primary);
+  box-shadow: 0 5px 10px var(--secundary);
+  color: var(--complementA);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+  display: none;
+}
+
+.sidebar input {
+  font-size: 15px;
+  color: var(--primary);
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: var(--complementA);
+}
+
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar li a {
+  display: flex;
+  height: 8%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: var(--tran-05);
+}
+
+.sidebar li a:hover {
+  background: var(--primary);
+}
+
+.sidebar li a .links_name {
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: var(--complementA);
+}
+
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+.sidebar li.profile {
+  position: fixed;
+  height: 60px;
+  width: 78px;
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  background: var(--complementC);
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.sidebar.open li.profile {
+  width: 250px;
+}
+
+.sidebar li .profile-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.sidebar li img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.sidebar li.profile .out {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.sidebar li.profile .job {
+  font-size: 12px;
+}
+
+.sidebar .profile #log_out {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--complementC);
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .profile #log_out {
+  width: 50px;
+  background: none;
+}
+
+.home-section {
+  position: relative;
+  background: var(--primary);
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.sidebar.open ~ .home-section {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.home-section .text {
+  display: inline-block;
+  color: var(--complementA);
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px
+}
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip{
+    display: none;
+  }
+}
+
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+    background-color: #333; /* Ajusta el color de fondo según tus preferencias */
+    width: 100%; /* Asegura que ocupe toda la anchura */
+    height: 75px;
+  }
+
+  .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  }
+
+  .nav-list li {
+      margin-right: 15px; /* Ajusta el margen entre elementos según sea necesario */
+  }
+
+  .nav-list {
+      align-items: center;
+  }
+
+  .sidebar .logo-details .logo_name {
+      display: none;
+  }
+
+  .nav-list a {
+      text-decoration: none;
+      color: white; /* Cambia el color del texto según tus preferencias */
+  }
+
+  .home-section{
+    margin-top: 75px;
+  }
+
+  .profile{
+    display: none;
+  }
+}
+
+
+/* Resto del la página */
+.home-section {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  height: auto;
+  width: 100%;
+  background-color: var(--primary);
+  transition: all 0.4s ease;
+  margin-bottom: 200px;
+}
+
+.home-section .title {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--complementA);
+  padding: 12px 60px;
+}
+
+.sidebar ~ .home-section {
+  left: 78px;
+  height: auto;
+  width: calc(100% - 78px);
+}
+
+.principalbox {
+  display: block;
+  flex-direction: column; /* Centra los elementos horizontalmente */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+.title {
+  margin-bottom: 10px; /* Agrega un margen inferior para separar el título de los elementos */
+  align-self: flex-start; /* Alinea el título a la izquierda dentro del contenedor flex */
+}
+
+.box {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.minibox {
+  width: 225px;
+  height: 210px;
+  margin: 0 10px 10px 0; /* Agrega un margen a la derecha y abajo de cada elemento .box */
+  border: 1px solid var(--secundary);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+
+.principalbox .minibox {
+  display: inline-block;
+}
+
+
+.name {
+  font-weight: bold; /* Hace que el nombre del torneo sea más destacado */
+  margin-bottom: 60px; /* Agrega espacio después del nombre del torneo */
+}
+
+.name, .teamname {
+  color: var(--complementA);
+}
+
+.description {
+  margin-bottom: 5px; /* Agrega espacio después de cada descripción */
+}
+
+.name, .description, .teamdescription {
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta el contenido que desborda */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto truncado */
+}
+
+.teamname {
+  font-weight: bold; /* Hace que el nombre del torneo sea más destacado */
+  margin-bottom: 85px; /* Agrega espacio después del nombre del torneo */
+}
+
+.teamdescription {
+  margin-bottom: 5px; /* Agrega espacio después de cada descripción */
+}
+
+.teamdescription, .description {
+  color: var(--complementA);
+}
+
+
+    /* Estilos opcionales para mejorar la apariencia de la tabla */
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 2px solid var(--secundary);
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: var(--complementA);
+  color: var(--primary);
+}
+
+.bold {
+  font-weight: bold;
+  color: var(--complementB)
+}
+
+.nosotrosp {
+  font-size: 16px; 
+  line-height: 1.5;
+  margin: 20px;
+}

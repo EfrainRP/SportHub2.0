@@ -1,0 +1,279 @@
+/* Styles form & login */
+
+/* principal colors */
+:root {
+    --primary: #F4EDE8;
+    --secundary: #645f5f;
+    --complementA: #040404fb;
+    --complementB: #D0671C;
+    --complementC: #1d1b31;
+
+}
+
+/* general styles of HTML */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.login-body, .form-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(../img/background-log&form.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.login-section, .form-section {
+    position: relative;
+    max-width: 400px;
+    background-color: #00000099;
+    border: 2px solid; 
+    border-color: var(--secundary);
+    border-radius: 20px;
+    backdrop-filter: blur(15px); /** blurred **/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.login-h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-box {
+    position: relative;
+}
+
+
+/* arrange data cells */
+.inputbox, .inputbox-forgot {
+    position: relative;
+    margin: 20px 0;
+    max-width: 300px;
+    border-bottom: 2px solid;
+    border-color: var(--secundary);
+}
+
+.inputbox-forgot {
+   height: 50px;
+}
+
+.inputbox label, .inputbox-forgot label {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    color: var(--primary);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    top: -5px;
+}
+
+.inputbox input, .inputbox-forgot input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0 35px 0 5px;
+    color: var(--primary);
+}
+
+.inputbox ion-icon, .inputbox-forgot ion-icon {
+    position: absolute;
+    right: -20px;
+    top: 10px;
+}
+
+/* Botones para mostar contraseña */
+#togglePassword {
+    position: absolute;
+    right: 0px; 
+    top: 65%; 
+    transform: translateY(-50%); 
+    background: none; 
+    border: none;
+    cursor: pointer;
+}
+
+.icon-show {
+    display: none; /* Oculta el ícono 'mostrar' por defecto */
+}
+
+.icon-hide {
+    display: inline-block; /* Muestra el ícono 'ocultar' por defecto */
+}
+
+.inputbox-birthday{
+    position: relative;
+    margin: 30px 0;
+    max-width: 300px;
+    border-bottom: 2px solid;
+    border-color: var(--secundary);
+}
+
+.inputbox-birthday label {
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    color: var(--primary);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.inputbox-birthday input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0 35px 0 5px;
+    color: var(--primary);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Invierte los colores (puedes ajustar según tus necesidades) */
+}
+
+.inputbox-gender {
+    position: relative;
+    margin: 30px 0;
+    max-width: 300px;
+    border-bottom: 2px solid;
+    border-color: var(--secundary);
+}
+
+.inputbox-gender label{
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    color: var(--primary);
+    font-size: 1rem;
+    pointer-events: none;  
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    gap: 5px;
+  }
+  
+.radio-group label {
+    color: var(--primary);
+}
+
+/* Resetear el aspecto por defecto de los botones de radio */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none; /* Para soporte de Safari */
+    -moz-appearance: none; /* Para soporte de Firefox */
+    background-color: transparent; /* Color de fondo */
+    border: 2px solid var(--primary); /* Borde del botón de radio */
+    border-radius: 50%; /* Borde redondeado para mantener la forma circular */
+    width: 20px; /* Ancho del botón de radio */
+    height: 20px; /* Altura del botón de radio */
+}
+  
+  /* Estilo para cuando el botón de radio está seleccionado */
+input[type="radio"]:checked {
+    background-color: var(--secundary); /* Color de fondo cuando está seleccionado */
+    border-color: var(--primary); /* Color del borde cuando está seleccionado */
+}
+
+.forget {
+    margin: 20px 0;
+    font-size: 0.85rem;
+    color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.forget label {
+    display: flex;
+    align-items: center;
+}
+
+.forget label input {
+    margin-right: 3px;
+}
+
+.forget a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forget a:hover {
+    text-decoration: underline;
+    color: var(--secundary)
+}
+
+.login-button {
+    width: 100%;
+    height: 25px;
+    border-radius: 40px;
+    background-color: var(--secundary);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    color: var(--primary);
+}
+
+.login-button:hover {
+    background-color: var(--primary);
+    color: var(--secundary);
+}
+
+.register {
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.register a:hover {
+    text-decoration: underline;
+    color: var(--secundary)
+}
+
+.back-form {
+    text-decoration: none;
+    color: var(--primary);
+    float: right;
+    padding: 25px 0 0;
+}
+
+.back-form:hover {
+    text-decoration: underline;
+    color: var(--secundary);
+}
+
+.credential-h4 {
+    color: var(--primary);
+}

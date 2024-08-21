@@ -1,0 +1,30 @@
+<VirtualHost *:80> 
+    DocumentRoot "C:/laragon/www/Sporthub/public"
+    ServerName Sporthub.test
+    ServerAlias *.Sporthub.test
+    <Directory "C:/laragon/www/Sporthub/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+# If you want to use SSL, enable it by going to Menu > Apache > SSL > Enabled
+
+----------------------------------------------------------------------------------
+<Laragon, Laravel, VS CONFIG>
+Laragon Download: https://laragon.org/download/
+
+Composer: https://getcomposer.org/download/ (in C:\laragon\bin\php\php-8.1.10-Win32-vs16-x64\php.exe)
+
+Laravel Installer command: composer create-project laravel/laravel nameapp --prefer-dist (in C:\laragon\www)
+
+VS Extensions: 
+Laravel Blade Snippets (template engine)
+laravel-blade (Laravel blade sintax)
+Laravel goto view (Quick jump to view)
+Laravel 5 Snippets (routes)
+
+Languaje Command: composer require laravel-lang/common --dev
+php artisan lang:add es //Spanish 
+
+

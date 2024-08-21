@@ -1,0 +1,94 @@
+/* principal colors */
+:root {
+    --primary: #F4EDE8;
+    --secundary: #645f5f;
+    --complementA: #040404fb;
+    --complementB: #D0671C;
+    --complementC: #1d1b31;
+
+}
+
+h1 {
+    color: var(--complementA);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--complementA);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid var(--complementA);
+    border-radius: 5px;
+}
+
+span {
+    color: var(--complementB);
+    display: block;
+}
+
+a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--secundary);
+}
+
+.contorno {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--primary);
+    border-radius: 8px;
+    box-shadow: 0 0 30px 0 var(--complementA);
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Additional Styles for Radio Buttons */
+input[type="radio"]:checked + label {
+    color: var(--complementA);
+}
+
+.flex-contianer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.button-left {
+    background-color: var(--secundary);
+    color: var(--primary);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-left:hover {
+    background-color: var(--complementB);
+}
+
+.button-right {
+    background-color: var(--secundary);
+    color: var(--primary);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-right:hover {
+    background-color: var(--secundary);
+}
