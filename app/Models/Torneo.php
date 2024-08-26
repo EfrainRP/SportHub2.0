@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Torneo extends Model
 {
     use HasFactory;
-  
+
     public function organizador()
     {
         return $this->belongsTo(User::class,'user_id');
     }
-    public function estadistica()
+    public function equipo()
     {
         return $this->belongsToMany(Equipo::class,'estadisticas')->withPivot('PT','CA','DC','CC');
     }

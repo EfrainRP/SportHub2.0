@@ -1,4 +1,4 @@
-@extends('Dashboard.dashboard') {{---Inherits dashboard---}}
+@extends('Dashboard.slidebar')
 @section('title','Torneo')
 
 <title>Torneo: {{$torneo->name}}</title>
@@ -34,16 +34,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($torneo->estadistica as $equipo)
-                        <tr>
-                            <td>{{$equipo->name}}</td><!--equipo-->
-                            <td>{{$equipo->pivot->PT}}</td><!-- Puntos a favor -->
-                            <td>{{$equipo->pivot->DC}}</td><!-- diferencia de canasta -->
-                            <td>{{$equipo->pivot->CA}}</td><!--canasta anotadas-->
-                            <td>{{$equipo->pivot->CC}}</td><!-- canastas en contra-->
-                        </tr>
-                    @endforeach
-                    
+                    @if ($torneo->estadistica)
+                        @foreach($torneo->estadistica as $equipo)
+                            <tr>
+                                <td>{{$equipo->name}}</td><!--equipo-->
+                                <td>{{$equipo->pivot->PT}}</td><!-- Puntos a favor -->
+                                <td>{{$equipo->pivot->DC}}</td><!-- diferencia de canasta -->
+                                <td>{{$equipo->pivot->CA}}</td><!--canasta anotadas-->
+                                <td>{{$equipo->pivot->CC}}</td><!-- canastas en contra-->
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
 

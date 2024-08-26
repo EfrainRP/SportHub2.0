@@ -1,4 +1,4 @@
-@extends('Dashboard.dashboard')
+@extends('Dashboard.slidebar') {{-- -Inherits sliderbar- --}}
 @section('title', 'Nosotros')
 
 @section('content')

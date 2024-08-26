@@ -24,9 +24,9 @@ class Equipo extends Model
     public function partidoVisitante(){
         return $this->hasMany(Partido::class,'id');
     }
-    public function estadistica()
+    public function torneo()
     {
-        return $this->belongsToMany(Torneo::class,'estadisticas')->withPivot('PT','CA','DC','CC');;
+        return $this->belongsToMany(Torneo::class,'estadisticas')->withPivot('PT','CA','DC','CC');
     }
     public function representante()
     {
