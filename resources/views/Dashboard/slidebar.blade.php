@@ -58,6 +58,14 @@
             </li>
 
             <li>
+                <a href="{{ route('dash_camara') }}">
+                    <i class='bx bx-camera'></i>
+                    <span class="links_name">Camara</span>
+                </a>
+                <span class="tooltip">Camara</span>
+            </li>
+
+            <li>
                 <a href="{{ route('notification.show') }}">
                     <i class='bx bx-notification'></i>
                     <span class="links_name">Notificaciones</span>

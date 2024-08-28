@@ -117,4 +117,8 @@ class DashboardController extends Controller
         $user = User::all();
         return view('Dashboard.slidebar',compact('user'));
       }
+      public function camara(){
+        
+        return view('Dashboard.camara');
+      }
 }

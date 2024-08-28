@@ -68,7 +68,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('dashboard/home', [DashboardController::class,'home'])->name('dash_home');
     Route::get('dashboard/torneos/{torneo}', [DashboardController::class,'torneo'])->name('dashboard.torneo');
     Route::get('dashboard/equipos/{equipo}', [DashboardController::class,'equipo'])->name('dashboard.equipo');
-    
+    Route::get('dashboard/camara', [DashboardController::class, 'camara'])->name('dash_camara');
+
     //LogoutController (App\Http\Controllers\LogoutController)
     Route::post('dashboard', [LogoutController::class,'logout'])->name('logout.index');
     //EquipoController (App\Http\Controllers\EquipoController)
