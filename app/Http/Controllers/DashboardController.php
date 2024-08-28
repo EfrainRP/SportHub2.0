@@ -68,11 +68,9 @@ class DashboardController extends Controller
         ->get();
 
         foreach($partidos as $miPartido){
-          $nameTorneo = $miPartido->estanTorneos->first()->name;
+          $miPartido['torneoName'] = $miPartido->estanTorneos->first()->name;
           $miPartido->local;
           $miPartido->visitante;
-
-          $miPartido['torneoName'] = $nameTorneo;
 
           // ->map(function ($item) use ($nameTorneo){
           //   $item['equipoLocalName'] = $item->local->name;
