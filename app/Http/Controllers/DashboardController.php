@@ -69,20 +69,27 @@ class DashboardController extends Controller
 
         foreach($partidos as $miPartido){
           $nameTorneo = $miPartido->estanTorneos->first()->name;
+          $miPartido->local;
+          $miPartido->visitante;
 
-          $misPartidos->push($miPartido)->map(function ($item) use ($nameTorneo){
-            $item['equipoLocalName'] = $item->local->name;
-            unset($item['equipoLocal_id']); // Eliminar atributo original
-            $item['equipoVisName'] = $item->visitante->name;
-            unset($item['equipoVisitante_id']); // Eliminar atributo original
-            unset($item['local']); // Eliminar atributo original
-            $item['torneoName'] = $nameTorneo; return $item;
-            unset($item['estan_torneos']); // Eliminar atributo original
-            // $item['fechaPartido'] = Carbon::parse($item->fechaPartido)->format('d F, Y');
-            // $item['horaPartido'] = Carbon::parse($item->horaPartido)->format('h:i A'); 
-          });
+          $miPartido['torneoName'] = $nameTorneo;
+
+          // ->map(function ($item) use ($nameTorneo){
+          //   $item['equipoLocalName'] = $item->local->name;
+          //   unset($item['equipoLocal_id']); // Eliminar atributo original
+          //   $item['equipoVisName'] = $item->visitante->name;
+          //   unset($item['equipoVisitante_id']); // Eliminar atributo original
+          //   unset($item['local']); // Eliminar atributo original
+          //   $item['torneoName'] = $nameTorneo; return $item;
+          //   unset($item['estan_torneos']); // Eliminar atributo original
+          //   // $item['fechaPartido'] = Carbon::parse($item->fechaPartido)->format('d F, Y');
+          //   // $item['horaPartido'] = Carbon::parse($item->horaPartido)->format('h:i A'); 
+          // });
+          $misPartidos->push($miPartido);
         }
       }
+      $misPartidos = $misPartidos->unique('id');//quitamos repetidas
+      // return $misPartidos;
       
       return view('Dashboard.dashboard',[
         'equipos' => $misEquipos,

@@ -58,8 +58,17 @@ class TorneoController extends Controller
      */
     public function show(Torneo $torneo)
     {
+        $torneoEquipo = $torneo->tienenPartidos;
+        foreach($torneoEquipo as $equipo){
+            $equipo->orderBy('fechaPartido','asc')
+            ->orderBy('horaPartido','asc');
+        }
         $organizador = User::find($torneo->user_id); //Search for the user "Organizador" by user_id"
-        return view('torneos.show',compact('torneo','organizador')); #Passes records to view
+        return view('torneos.show',[
+            'torneo'=>$torneo,
+            'organizador'=>$organizador,
+            'torneoEquipo'=>$torneoEquipo
+        ]); #Passes records to view
     }
 
     /**

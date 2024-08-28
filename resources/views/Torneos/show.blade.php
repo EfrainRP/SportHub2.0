@@ -62,9 +62,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $torneoEquipo = App\Models\Partido::find($torneo);
-                    @endphp
                     @foreach($torneoEquipo as $equipo)
                         <tr>
                             <td>{{$equipo->local->name}}</td><!--Local-->

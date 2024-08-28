@@ -47,8 +47,8 @@
                 @foreach($partidos as $partido) {{-- Representantes de equipo--}}
                     <tr>
                         <td>{{$partido->torneoName}}</td> {{--checar posibles errores--}}
-                        <td>{{$partido->equipoLocalName}}</td>
-                        <td>{{$partido->equipoVisName}}</td>
+                        <td>{{$partido->local->name}}</td>
+                        <td>{{$partido->visitante->name}}</td>
                         <td>{{$partido->fechaPartido}}</td>
                         <td>{{$partido->horaPartido}}</td>
                     </tr>
