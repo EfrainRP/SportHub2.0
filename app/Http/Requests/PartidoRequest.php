@@ -27,8 +27,8 @@ class PartidoRequest extends FormRequest
             'jornada' => 'required',
             'equipoLocal_id' => 'required|different:equipoVisitante_id',
             'equipoVisitante_id' => 'required|different:equipoLocal_id',
-            'resLocal' => 'required',
-            'resVis' => 'required'
+            'resLocal' => 'no required',
+            'resVis' => 'no required'
         ];
     }
     public function attributes(): array  //Customize the name of the attributes in the errors

@@ -34,8 +34,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($torneo->estadistica)
-                        @foreach($torneo->estadistica as $equipo)
+                    @foreach($torneoEstadistica as $equipo)
+                        @if(auth()->user()->id == $organizador->id) {{-- Verifica si el usuario es el representante --}}
+                            <tr>
+                                <td><a>{{$equipo->name}}</a></td><!--equipo-->
+                                <td>{{$equipo->pivot->PT}}</td><!-- Puntos a favor -->
+                                <td>{{$equipo->pivot->DC}}</td><!-- diferencia de canasta -->
+                                <td>{{$equipo->pivot->CA}}</td><!--canasta anotadas-->
+                                <td>{{$equipo->pivot->CC}}</td><!-- canastas en contra-->
+                            </tr>
+                        @else
                             <tr>
                                 <td>{{$equipo->name}}</td><!--equipo-->
                                 <td>{{$equipo->pivot->PT}}</td><!-- Puntos a favor -->
@@ -43,8 +51,8 @@
                                 <td>{{$equipo->pivot->CA}}</td><!--canasta anotadas-->
                                 <td>{{$equipo->pivot->CC}}</td><!-- canastas en contra-->
                             </tr>
-                        @endforeach
-                    @endif
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
 
@@ -87,19 +95,6 @@
                                 $equipo = App\Models\Equipo::find($equipoTorneo->equipo_id);
                             @endphp
                             Equipo: {{$equipo->name}}<br>
-                        @endif
-                    @endforeach
-            @else
-                @php
-                    $participantesTorneo = App\Models\ParticipanteTorneo::all(); 
-                @endphp
-                <h2>Participantes en el torneo:</h2>
-                    @foreach ($participantesTorneo as $participanteTorneo)
-                        @if($participanteTorneo->torneo_id == $torneo->id)
-                            @php
-                                $user = App\Models\user::find($participanteTorneo->user_id);
-                            @endphp
-                            Participante: {{$user->name}}<br>
                         @endif
                     @endforeach
             @endif
